@@ -33,7 +33,7 @@ printAnything(['a', 'b', 'c']); // Type inference
 
 // Generic Constraints
 
-class Car {
+class Carro {
   print() {
     console.log('I am a Car');
   }
@@ -53,3 +53,25 @@ function printHouseOrCars<T extends Printeable>(arr: T[]): void {
     arr[i].print();
   }
 }
+
+interface Lengthy {
+  length: number;
+}
+
+function countAndPrint<T extends Lengthy>(element: T): [T, string] {
+  let descriptionText = 'Got no value';
+  if (element.length > 0) {
+    descriptionText = 'Got a value size:' + element.length;
+  }
+  return [element, descriptionText];
+}
+
+function extractAndConvert<T extends object, U extends keyof T>(
+  obj: T,
+  key: U
+): T[U] {
+  return obj[key];
+}
+
+const names: Readonly<number[]> = [1, 2, 3];
+// names.push(2) error

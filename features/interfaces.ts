@@ -1,24 +1,23 @@
 interface Reportable {
-  summary(): string 
+  summary(): string;
 }
 
-
 const oldCivic = {
-  name: "civic",
+  name: 'civic',
   year: new Date(),
   broken: true,
   summary() {
-    return `Name: ${this.name}`
-  }
+    return `Name: ${this.name}`;
+  },
 };
 
 const sugarDrink = {
-  color: "xxx",
+  color: 'xxx',
   sugar: false,
   broken: true,
   summary() {
-    return `Name: ${this.name}`
-  }
+    return `Name: ${this.broken}`;
+  },
 };
 
 const printSummary = (item: Reportable): void => {
